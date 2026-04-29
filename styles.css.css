@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 600px;
+}
+
+.input-section {
+    padding: 40px;
+    background: #f8f9fa;
+    border-right: 1px solid #e9ecef;
+}
+
+.results-section {
+    padding: 40px;
+    background: white;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c5530;
+    font-size: 1.1em;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.category-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 20px;
+    margin: 20px -40px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.category-header:first-child {
+    margin-top: 0;
+}
+
+.calculate-btn {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+}
+
+.results-container {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.results-container.show {
+    opacity: 1;
+}
+
+.total-emissions {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.total-emissions h2 {
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+.total-emissions p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.chart-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.chart-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.recommendations {
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.recommendations h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.recommendation-item {
+    background: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.recommendation-item:last-child {
+    margin-bottom: 0;
+}
+
+.pie-chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.breakdown-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.stat-value {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #2c5530;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-section {
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .category-header {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    
+    .input-section, .results-section {
+        padding: 20px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        border-radius: 10px;
+    }
+    
+    .breakdown-stats {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .header p {
+        font-size: 1em;
+    }
+    
+    .input-section, .results-section {
+        padding: 15px;
+    }
+    
+    .category-header {
+        margin-left: -15px;
+        margin-right: -15px;
+        font-size: 1.1em;
+    }
+    
+    .form-group input, .form-group select {
+        padding: 10px 12px;
+    }
+    
+    .calculate-btn {
+        padding: 12px 20px;
+    }
+    
+    .total-emissions {
+        padding: 20px;
+    }
+    
+    .total-emissions h2 {
+        font-size: 1.8em;
+    }
+    
+    .chart-container {
+        padding: 15px;
+    }
+    
+    .recommendations {
+        padding: 20px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Chart Specific Styles */
+#pieChart svg {
+    display: block;
+    margin: 0 auto;
+}
+
+#barChart svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.bar:hover {
+    opacity: 0.8;
+}
+
+.arc path:hover {
+    opacity: 0.8;
+    stroke: white;
+    stroke-width: 2px;
+}
